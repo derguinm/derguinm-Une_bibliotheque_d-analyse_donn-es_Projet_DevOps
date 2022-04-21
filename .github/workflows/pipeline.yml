@@ -15,12 +15,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name : compile the project
-        run : mvn compile
+        run : mvn compile -f pom.xml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   test :
     name : run the test
     runs-on: ubuntu-latest
     steps:
       - name : run the test
-        run : mvn test
+        run : mvn test -f pom.xml 
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
     
