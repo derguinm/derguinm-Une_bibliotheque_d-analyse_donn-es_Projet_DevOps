@@ -1,0 +1,26 @@
+
+on: pushuses
+jobs:
+  super-lint:
+    name : lint code
+    run-on: ubuntu-latest
+    steps:
+      - name : checkout code
+        uses : actions/checkout@v2
+        
+      - name : lint code
+        uses : actions/super-linter@v3
+  build :
+    name : build the project
+    run-on: ubuntu-latest
+    steps:
+      - name : compile the project
+        run : mvn compile
+  test :
+    name : run the test
+    run-on: ubuntu-latest
+    steps:
+      - name : run the test
+        run : mvn test
+      
+    
